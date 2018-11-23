@@ -19,7 +19,7 @@
         <div class="col-9">
             @for($loop=0; $loop<5; $loop++)
                 <div class="card w-auto {{($loop > 0)?"mt-5":""}}">
-                    <a href="#"><img class="card-img-top" src="https://placeimg.com/992/558/any" alt="User Image"></a>
+                    <a href="{{route('details')}}"><img class="card-img-top" src="https://placeimg.com/992/558/any" alt="User Image"></a>
                     <div class="card-body">
                         <div class="flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
@@ -32,6 +32,7 @@
                             pius,
                             placidus era.</p>
                         <a href="#" class="text-danger"><i class="far fa-heart fa-2x"></i></a>
+                        <span class="text-danger align-top">10 Likes</span>
                         <a href="#" class="text-secondary ml-2"><i class="far fa-comment fa-2x"></i></a>
                         <ul class="list-group list-group-flush p-0 mt-2">
                             <li class="list-group-item flex-column align-items-start p-2">

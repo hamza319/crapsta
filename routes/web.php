@@ -16,6 +16,6 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 //Hamza routes
-Route::view('test','layouts.hz_layout');
+Route::view('test','details')->name('details');
 
 //Pascal routes
