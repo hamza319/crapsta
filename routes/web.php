@@ -23,3 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Pascal routes
+Route::get('/profile', function(){
+	return view('profile');
+});
+
+Route::get('/search', function(){
+	return view('search');
+});

@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace Tinygram;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
 	public function comments(){
-		return $this->hasMany("App\Comment");
+		return $this->hasMany("Tinygram\Comment");
 	}
     //
 }
