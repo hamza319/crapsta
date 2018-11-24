@@ -21,8 +21,8 @@ Route::view('test','details')->name('details');
 //Pascal routes
 Route::get('/profile', function(){
 	return view('profile');
-});
+})->name('profile');
 
 Route::get('/search', function(){
 	return view('search');
-});
+})->name('search');

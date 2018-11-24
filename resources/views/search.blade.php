@@ -1,5 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.hz_layout')
 @section('title', 'Profile')
+@section('css')
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
 <div class="container search">
