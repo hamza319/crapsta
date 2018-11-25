@@ -1,6 +1,6 @@
 <?php
 
-namespace Tinygram;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

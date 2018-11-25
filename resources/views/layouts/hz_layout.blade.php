@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">Crapsta</a>
+        <a class="navbar-brand">Crapsta</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
                 aria-expanded="false"
                 aria-label="Toggle navigation">

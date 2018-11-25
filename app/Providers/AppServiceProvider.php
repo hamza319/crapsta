@@ -1,6 +1,6 @@
 <?php
 
-namespace Tinygram\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
