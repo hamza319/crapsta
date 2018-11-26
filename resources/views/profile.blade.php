@@ -1,8 +1,21 @@
 @extends('layouts.hz_layout')
 @section('title', 'Profile')
+@section('js')
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+<script type="text/javascript">  
+  var myUploadWidget;
+  document.getElementById("upload_widget_opener").addEventListener("click", function() {
+    myUploadWidget = cloudinary.openUploadWidget({ 
+      cloudName: 'dlxurkbpj', uploadPreset: 'bmoy73rn', cropping: true}, (error, result) => { });
+  }, false);
+</script>
+@endsection
 @section('css')
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
 @endsection
+
 @section('content')
 
 <div class="main-container">
@@ -47,6 +60,24 @@
 							<div class="follow_status">
 								<button type="button" class="btn btn-outline-light">Following</button>
 							</div>
+							<div class="new-picture">
+								<a href="#" id="upload_widget_opener"><button type="button" id="uploadbtn" class="btn btn-outline-light" data-toggle="modal" data-target="#fileuploa"><i class="fas fa-file-upload fa-1x"></i></button></a>
+
+								<div class="modal" id="fileupload">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+											</div>
+											<!-- Modal body -->
+											<div class="modal-body">
+												<input type="file" name="file" id="file" class="inputfile" accept="image/*">
+												<!-- <label for="file" class="btn">upload</label> -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>	
 				</div>
@@ -60,8 +91,7 @@
 							<img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80" class="img-fluid">
 							<div class="overlay">
 								<div class='likes'>
-									<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-									105
+									<i class="far fa-heart"></i><span>105</span>
 								</div>
 								<div class="comments">
 									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -75,7 +105,7 @@
 							<img src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?auto=format&fit=crop&w=750&q=80" class="img-fluid image m-1 p-1">
 							<div class="overlay">
 								<div class='likes'>
-									<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+									<i class="far fa-heart"></i>
 									105
 								</div>
 								<div class="comments">

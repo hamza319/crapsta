@@ -14,20 +14,23 @@
 	position: absolute;
 	top: 195px;
 	left: 22px;
-	color: #fff;
 }
 .main-container .row .col.user_details ul {
 	list-style: none;
+}
+.main-container .profile_name {
+	color: #fff;
 }
 .main-container .user_stat {
 	display: flex;
 	position: absolute;
 	right: 10px;
 	text-align: center;
+	color: #fff;
 }
 .main-container .user_details .follow_status {
 	position: absolute;
-	right: 75px;
+	left: 66px;
 }
 
 .main-container .user_details .user_info {
@@ -53,6 +56,46 @@
 	left: 45px;*/
 	background: #fff;
 }
+
+/*input file*/
+
+.new-picture #uploadbtn {
+	position: absolute;
+	right: 50px;
+}
+/*.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: ;
+	left: 136px;
+}
+.new-picture label {
+	position: absolute;
+	right: 50px;
+	color: white;
+	border:1px solid #fff;
+	cursor: pointer;
+}
+.inputfile:focus + label,
+.inputfile + label:hover {
+	color: #212529;
+	background-color: #f8f9fa;
+	border-color: #f8f9fa;
+} 
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+	box-shadow: 0 0 0 .2rem rgba(249, 249, 249, 0.3);;
+}*/
+/*.new-picture label:hover .fa-file-upload:hover {
+	color: black;
+}*/
+.fa-file-upload {
+}
+
 
 /*Grid image*/
 .imagegrid {
