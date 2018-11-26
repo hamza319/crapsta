@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Tinygram'),
+    'name' => env('APP_NAME', 'App'),
 
     /*
     |--------------------------------------------------------------------------
@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Tinygram\Providers\AppServiceProvider::class,
-        Tinygram\Providers\AuthServiceProvider::class,
-        // Tinygram\Providers\BroadcastServiceProvider::class,
-        Tinygram\Providers\EventServiceProvider::class,
-        Tinygram\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
