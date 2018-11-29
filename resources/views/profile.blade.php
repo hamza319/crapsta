@@ -4,11 +4,11 @@
 
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 <script type="text/javascript">  
-  var myUploadWidget;
-  document.getElementById("upload_widget_opener").addEventListener("click", function() {
-    myUploadWidget = cloudinary.openUploadWidget({ 
-      cloudName: 'dlxurkbpj', uploadPreset: 'bmoy73rn', cropping: true}, (error, result) => { });
-  }, false);
+	var myUploadWidget;
+	document.getElementById("upload_widget_opener").addEventListener("click", function() {
+		myUploadWidget = cloudinary.openUploadWidget({ 
+			cloudName: 'dlxurkbpj', uploadPreset: 'bmoy73rn', cropping: true}, (error, result) => { });
+	}, false);
 </script>
 @endsection
 @section('css')
@@ -61,7 +61,7 @@
 								<button type="button" class="btn btn-outline-light">Following</button>
 							</div>
 							<div class="new-picture">
-								<a href="#" id="upload_widget_opener"><button type="button" id="uploadbtn" class="btn btn-outline-light" data-toggle="modal" data-target="#fileuploa"><i class="fas fa-file-upload fa-1x"></i></button></a>
+								<button type="button" id="uploadbtn" class="btn btn-outline-light" data-toggle="modal" data-target="#fileupload"><i class="fas fa-file-upload fa-1x"></i></button>
 
 								<div class="modal" id="fileupload">
 									<div class="modal-dialog modal-dialog-centered">
@@ -71,8 +71,20 @@
 											</div>
 											<!-- Modal body -->
 											<div class="modal-body">
-												<input type="file" name="file" id="file" class="inputfile" accept="image/*">
-												<!-- <label for="file" class="btn">upload</label> -->
+												<form method="post">
+													<div class="form-group">
+														<label for="imagefile">Select Image</label>
+														<input type="file" name="file" id="imagefile" class="inputfile" accept="image/*">
+
+														<div class="form-group">
+															<textarea class="form-control" id="comments" placeholder="say something" rows="2"></textarea>
+														</div>
+														<div class="form-group">
+															<button type="submit" class="btn btn-primary">Share</button>
+														</div>
+														<!-- <label for="file" class="btn">upload</label> -->
+													</div>
+												</form>
 											</div>
 										</div>
 									</div>
