@@ -16,7 +16,13 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 //Hamza routes
-Route::view('test','details')->name('details');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('post')->group(function () {
+        Route::view('new', 'new')->name('new.post');
+        Route::post('save', 'PostController@save')->name('post.save');
+        Route::view('details','details')->name('details');
+    });
+});
 
 //Pascal routes
 Route::get('/profile', function(){
