@@ -21,7 +21,9 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('post')->group(function () {
         Route::view('new', 'new')->name('new.post');
         Route::post('save', 'PostController@save')->name('post.save');
-        Route::view('details','details')->name('details');
+        Route::get('details/{id}' ,'PostController@show')->name('details');
+        Route::post('details/comment' ,'PostController@comment')->name('post.comment');
+        Route::post('like' ,'PostController@like')->name('post.like');
     });
 });
 

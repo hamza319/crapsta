@@ -19,8 +19,8 @@ $signature = getSignature();
 
         document.getElementById("upload_widget_opener").addEventListener("click", function () {
             myUploadWidget = cloudinary.openUploadWidget({
-                cloudName: 'dlxurkbpj',
-                uploadPreset: 'bmoy73rn',
+                cloudName: '{{env('CLOUDINARY_CLOUD_NAME')}}',
+                uploadPreset: '{{env('CLOUDINARY_PRESET')}}',
                 apiKey: "{{env("CLOUDINARY_API_KEY")}}",
                 sources: ['local'],
                 multiple: false,
