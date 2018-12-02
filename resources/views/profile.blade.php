@@ -61,7 +61,7 @@
 								<button type="button" class="btn btn-outline-light">Following</button>
 							</div>
 							<div class="new-picture">
-								<button type="button" id="uploadbtn" class="btn btn-outline-light" data-toggle="modal" data-target="#fileupload"><i class="fas fa-file-upload fa-1x"></i></button>
+								<a href="{{route('new.post')}}"><button type="button" id="uploadbtn" class="btn btn-outline-light" data-toggle="modal" data-target="#fileuploa"><i class="fas fa-file-upload fa-1x"></i></button></a>
 
 								<div class="modal" id="fileupload">
 									<div class="modal-dialog modal-dialog-centered">
@@ -71,7 +71,7 @@
 											</div>
 											<!-- Modal body -->
 											<div class="modal-body">
-												<form method="post">
+												<form method="Get" actions="/profile">
 													<div class="form-group">
 														<label for="imagefile">Select Image</label>
 														<input type="file" name="file" id="imagefile" class="inputfile" accept="image/*">

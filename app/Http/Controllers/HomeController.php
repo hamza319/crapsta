@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::check())
-            return view('home');
+            return view('/home');
         else
             return response()->redirectToRoute('login');
     }

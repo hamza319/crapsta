@@ -5,9 +5,43 @@
 @endsection
 @section('content')
 
-<div class="container search">
+<div class="search">
 	<div class="row">
-		<div class="col user-profile">
+		<div class="col-12">
+			<p>Search for  </p>
+		 </div>
+	</div>
+	<div class="row">
+		@for($loop=0; $loop<4; $loop++)
+		<div class="col-sm-3 user-profile">
+			<div class="profile-img">
+				<img src="image/pimg.jpeg" class="img-fluid">
+			</div>
+			<div class="user-info">
+				<div class="name">
+					<h5>Johnny Bullivan-danco </h5>
+				</div>
+				<hr />
+				<div class="user-stat">
+					<ul>
+						<li>55</li>
+						<li>Post</li>
+					</ul>
+					<ul>
+						<li>367</li>
+						<li>Following</li>
+					</ul>
+					<ul>
+						<li>1032</li>
+						<li>Followers</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		@endfor
+
+
+		<!-- <div class="col user-profile">
 			<div class="profile-img">
 				<img src="image/pimg.jpeg" class="img-fluid">
 			</div>
@@ -81,32 +115,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div class="col user-profile">
-			<div class="profile-img">
-				<img src="image/pimg.jpeg" class="img-fluid">
-			</div>
-			<div class="user-info">
-				<div class="name">
-					<h5>Johnny Bullivan-danco </h5>
-				</div>
-				<hr />
-				<div class="user-stat">
-					<ul>
-						<li>55</li>
-						<li>Post</li>
-					</ul>
-					<ul>
-						<li>367</li>
-						<li>Following</li>
-					</ul>
-					<ul>
-						<li>1032</li>
-						<li>Followers</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		</div >-->
 	</div>
 </div>
 

@@ -142,8 +142,14 @@
 
 /*****search page******/
 
+.search {
+	margin-top: 2%;
+}
 .search .user-info .user-stat ul {
 	list-style-type: none;
+}
+.search .user-info .user-stat > ul li:first-child {
+	text-align: center;
 }
 .search .user-info .user-stat ul:first-child {
 	padding-left: 0;

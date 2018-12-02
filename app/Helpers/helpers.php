@@ -15,7 +15,7 @@ function getSignature(){
     $prams = [
         "source" => "uw",
         "timestamp" => $time,
-        "upload_preset" => "zu0bugfs"
+        "upload_preset" => "bmoy73rn"
     ];
 
     $sha = Cloudinary::api_sign_request($prams, env("CLOUDINARY_API_SECRET"));

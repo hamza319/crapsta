@@ -32,14 +32,14 @@
                     <a class="nav-link" href="{{route('profile')}}">My Profile</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="{{ route('logout') }}" method="POST">
+            <!-- <form class="form-inline my-2 my-lg-0" action="{{ route('logout') }}" method="POST"> -->
                 @guest
                     <a class="btn btn-outline-secondary my-2 my-sm-0" href="{{ route('login') }}">Login</a>
                 @else
                     <span class="mr-4">{{Auth::user()->email}}</span>
-                    <button class="btn btn-outline-secondary my-2 my-sm-0">Logout</button>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/logout">Logout</a>
                 @endguest
-            </form>
+           <!--  </form> -->
         </div>
     </div>
 </nav>

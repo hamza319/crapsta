@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //Hamza routes
 Route::middleware(['auth'])->group(function () {
@@ -32,3 +33,12 @@ Route::get('/profile', function(){
 Route::get('/search', function(){
 	return view('search');
 })->name('search');
+
+Route::get('/dbtest', function(){
+
+	$posts = \App\Post::all();
+	return view('dbTest', compact('posts'));
+})->name('dbtest');
+
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
