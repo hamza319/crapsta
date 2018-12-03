@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use JD\Cloudder\Facades\Cloudder;
 
 /**
  * Created by PhpStorm.
@@ -15,7 +16,7 @@ function getSignature(){
     $prams = [
         "source" => "uw",
         "timestamp" => $time,
-        "upload_preset" => env('CLOUDINARY_PRESET')
+        "upload_preset" => env('CLOUDINARY_PRESET'),
     ];
 
     $sha = Cloudinary::api_sign_request($prams, env("CLOUDINARY_API_SECRET"));

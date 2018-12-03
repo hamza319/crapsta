@@ -65,7 +65,7 @@ use JD\Cloudder\Facades\Cloudder;
             @if($posts->isNotEmpty())
                 @foreach($posts as $post)
                     <div class="card w-auto {{($loop->index > 0)?"mt-5":""}}">
-                        <a href="{{route('details', $post->id)}}"><img class="card-img-top" src="{{Cloudder::showPrivateUrl($post->path, "png")}}" alt="User Image"></a>
+                        <a href="{{route('details', $post->id)}}"><img class="card-img-top" src="{{Cloudder::showPrivateUrl($post->path, "png", ["q_auto:eco", "f_auto"])}}" alt="User Image"></a>
                         <div class="card-body">
                             <div class="flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">

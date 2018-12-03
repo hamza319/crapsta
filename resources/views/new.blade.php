@@ -23,6 +23,7 @@ $signature = getSignature();
                 uploadPreset: '{{env('CLOUDINARY_PRESET')}}',
                 apiKey: "{{env("CLOUDINARY_API_KEY")}}",
                 sources: ['local'],
+                moderation: 'metascan',
                 multiple: false,
                 uploadSignatureTimestamp: "{{$signature['time']}}",
                 uploadSignature: "{{$signature['secret']}}",
