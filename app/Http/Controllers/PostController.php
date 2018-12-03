@@ -6,11 +6,14 @@ use function abort;
 use App\Comment;
 use App\Like;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use function intval;
 use JD\Cloudder\Facades\Cloudder;
 use function response;
+use function trim;
 use function view;
 
 class PostController extends Controller
@@ -105,5 +108,15 @@ class PostController extends Controller
             abort('403', "You're not authorized to like this post");
             return false;
         }
+    }
+
+    public function search(Request $request){
+
+        $result = new Collection();
+
+        if ($request->q)
+            $result = User::where('email', 'like', '%'.trim($request->q).'%')->withCount(['following', 'followers', 'post'])->get();
+
+        return view('search', ["result" => $result, "key"  => $request->q]);
     }
 }

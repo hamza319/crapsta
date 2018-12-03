@@ -26,15 +26,15 @@ use JD\Cloudder\Facades\Cloudder;
                 method: 'post',
                 url: "{{route('post.like')}}",
                 data: {
-                    'post_id' : link.attr('data-id'),
+                    'post_id': link.attr('data-id'),
                 },
                 success: function (result) {
-                    link.parent().find('span').first().html(result[1]+" Likes");
+                    link.parent().find('span').first().html(result[1] + " Likes");
 
-                    if(result[0] == "like") {
+                    if (result[0] == "like") {
                         link.html(solid);
                     }
-                    else{
+                    else {
                         link.html(regular);
                     }
 
@@ -48,13 +48,14 @@ use JD\Cloudder\Facades\Cloudder;
 @endsection
 
 @section('content')
-    <form>
+    <form method="get" action="{{route('search')}}">
         <div class="row">
             <div class="col-12">
                 <div class="input-group mb-3 mt-3 w-50 mx-auto">
-                    <input type="text" class="form-control" id="Search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" name="q" id="Search" placeholder="User email" aria-label="Search" aria-describedby="button-addon2"
+                           required>
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
                     </div>
                 </div>
             </div>
@@ -65,7 +66,9 @@ use JD\Cloudder\Facades\Cloudder;
             @if($posts->isNotEmpty())
                 @foreach($posts as $post)
                     <div class="card w-auto {{($loop->index > 0)?"mt-5":""}}">
-                        <a href="{{route('details', $post->id)}}"><img class="card-img-top" src="{{Cloudder::showPrivateUrl($post->path, "png", ["q_auto:eco", "f_auto"])}}" alt="User Image"></a>
+                        <a href="{{route('details', $post->id)}}"><img class="card-img-top"
+                                                                       src="{{Cloudder::showPrivateUrl($post->path, "png", ["q_auto:eco", "f_auto"])}}"
+                                                                       alt="User Image"></a>
                         <div class="card-body">
                             <div class="flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
@@ -118,12 +121,12 @@ use JD\Cloudder\Facades\Cloudder;
             <hr>
             <ul class="list-group list-group-flush">
                 @if($following->isNotEmpty())
-                @foreach($following as $item)
-                    <li class="list-group-item border-0">
-                        <a href="#"><img src="https://placeimg.com/50/50/any" alt="profile pic" class="rounded-circle" height="50" width="50"></a>
-                        <a href="#" class="text-dark"><b>{{$item->follows->email}}</b></a>
-                    </li>
-                @endforeach
+                    @foreach($following as $item)
+                        <li class="list-group-item border-0">
+                            <a href="#"><img src="https://placeimg.com/50/50/any" alt="profile pic" class="rounded-circle" height="50" width="50"></a>
+                            <a href="#" class="text-dark"><b>{{$item->follows->email}}</b></a>
+                        </li>
+                    @endforeach
                 @else
                     <h6>No recent follows</h6>
                 @endif
