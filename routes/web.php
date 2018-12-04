@@ -29,9 +29,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //Pascal routes
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
+Route::get('/profile/{id}', "UserController@profile")->name('profile');
 
 Route::get('/dbtest', function () {
 

@@ -48,7 +48,7 @@ use JD\Cloudder\Facades\Cloudder;
 @endsection
 
 @section('content')
-    <form method="get" action="{{route('search')}}">
+   <!--  <form method="get" action="{{route('search')}}">
         <div class="row">
             <div class="col-12">
                 <div class="input-group mb-3 mt-3 w-50 mx-auto">
@@ -60,7 +60,7 @@ use JD\Cloudder\Facades\Cloudder;
                 </div>
             </div>
         </div>
-    </form>
+    </form> -->
     <div class="row mb-5">
         <div class="col-9">
             @if($posts->isNotEmpty())

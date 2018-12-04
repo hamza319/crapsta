@@ -11,16 +11,18 @@ use function with;
 class UserController extends Controller
 {
     public function profile($id){
-
+        $following = Auth::user()->following;
         $result = new Collection();
-        if(Auth::user()->following()->get()->contains($id)){
+        if($following->contains($id) || Auth::id() == $id ){
             $user = User::with(['post' => function($query){
                 $query->withCount(['comments', 'likes']);
             }])->withCount('following', 'followers')->find($id);
-            return  view('profile', ["posts" => $user->post]);
+            
+            /*dd($user);*/
+            return  view('profile', ["user" => $user]);
         }
 
-        return  view('profile', ["posts" => $result]);
+        return  view('profile', ["user" => User::withCount('following', 'followers')->find($id)]);
 
     }
 }
