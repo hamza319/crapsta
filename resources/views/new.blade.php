@@ -14,7 +14,7 @@ $signature = getSignature();
 
 @section('js')
     <script src="{{asset('js/cloudinary.js')}}" type="text/javascript" crossorigin="anonymous"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" nonce="{{ csp_nonce() }}">
         let myUploadWidget;
 
         document.getElementById("upload_widget_opener").addEventListener("click", function () {
