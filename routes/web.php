@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Hamza routes
+//Haza routes
 Route::middleware(['auth'])->group(function () {
     Route::prefix('post')->group(function () {
         Route::view('new', 'new')->name('new.post');
@@ -24,18 +24,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('details/{id}', 'PostController@show')->name('details');
         Route::get('search', 'PostController@search')->name('search');
         Route::post('details/comment', 'PostController@comment')->name('post.comment');
+        Route::get('/profile/{id}', "UserController@profile")->name('profile');
         Route::post('like', 'PostController@like')->name('post.like');
+        Route::get('/profile/{id}', "UserController@profile")->name('profile');
+        Route::get('/follow/{id}', "UserController@follow")->name('follow');
     });
 });
 
 //Pascal routes
-Route::get('/profile/{id}', "UserController@profile")->name('profile');
-
-Route::get('/dbtest', function () {
-
-    $posts = \App\Post::all();
-    return view('dbTest', compact('posts'));
-})->name('dbtest');
 
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//Route::get('/dbtest', function () {
+//
+//    $posts = \App\Post::all();
+//    return view('dbTest', compact('posts'));
+//})->name('dbtest');
+//
+//
+//Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Follow;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -10,18 +11,18 @@ use function with;
 
 class UserController extends Controller
 {
-    public function profile($id){
+    public function profile($id)
+    {
         $following = Auth::user()->following;
         $result = new Collection();
-        if($following->contains($id) || Auth::id() == $id ){
-            $user = User::with(['post' => function($query){
+        if ($following->contains($id) || Auth::id() == $id) {
+            $user = User::with(['post' => function ($query) {
                 $query->withCount(['comments', 'likes']);
             }])->withCount(['following', 'followers', 'post'])->find($id);
-            
-            if($user)
-                return  view('profile', ["user" => $user]);
-            else
-            {
+
+            if ($user)
+                return view('profile', ["user" => $user, "id" => $id]);
+            else {
                 abort("404", "User not found");
                 return false;
             }
@@ -29,12 +30,17 @@ class UserController extends Controller
 
         $user = User::withCount(['following', 'followers', 'post'])->find($id);
         if ($user)
-            return  view('profile', ["user" => $user]);
-        else
-        {
+            return view('profile', ["user" => $user, "id" => $id]);
+        else {
             abort("404", "User not found");
             return false;
         }
+    }
 
+    public function follow($id){
+        $f =   new Follow();
+        $f->following_id = $id;
+        Auth::user()->following()->save($f);
+        return back();
     }
 }

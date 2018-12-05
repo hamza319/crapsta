@@ -36,7 +36,7 @@ class PostController extends Controller
         $p->caption = $request->caption;
         Auth::user()->post()->save($p);
 
-        return response()->redirectToRoute('profile');
+        return response()->redirectToRoute('profile', Auth::id());
     }
 
     public function show($id)

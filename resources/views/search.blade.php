@@ -19,7 +19,7 @@
                 @foreach($result as $item)
                     <div class="col-sm-3 user-profile">
                         <div class="profile-img">
-                            <img src="https://placeimg.com/350/350/any" class="img-fluid">
+                            <a href="{{route('profile', $item->id)}}"><img src="https://placeimg.com/350/350/any" class="img-fluid"></a>
                         </div>
                         <div class="user-info">
                             <div class="name">
