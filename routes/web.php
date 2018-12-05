@@ -18,6 +18,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Haza routes
 Route::middleware(['auth'])->group(function () {
+    Route::get('/profile/{id}', "UserController@profile")->name('profile');
     Route::prefix('post')->group(function () {
         Route::view('new', 'new')->name('new.post');
         Route::post('save', 'PostController@save')->name('post.save');
@@ -26,7 +27,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('details/comment', 'PostController@comment')->name('post.comment');
         Route::get('/profile/{id}', "UserController@profile")->name('profile');
         Route::post('like', 'PostController@like')->name('post.like');
-        Route::get('/profile/{id}', "UserController@profile")->name('profile');
         Route::get('/follow/{id}', "UserController@follow")->name('follow');
     });
 });
