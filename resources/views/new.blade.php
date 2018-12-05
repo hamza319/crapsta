@@ -13,7 +13,7 @@ $signature = getSignature();
 @section('title', 'Image Upload')
 
 @section('js')
-    <script src="{{asset('js/cloudinary.js')}}" type="text/javascript" crossorigin="anonymous"></script>
+    <script src="{{asset('js/cloudinary.js')}}" type="text/javascript" nonce="{{ csp_nonce() }}" crossorigin="anonymous"></script>
     <script type="text/javascript" nonce="{{ csp_nonce() }}">
         let myUploadWidget;
 

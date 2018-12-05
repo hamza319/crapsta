@@ -21,6 +21,7 @@ class CspPolicy extends Basic
             ->addDirectivesForFontAwesome()
             ->addDirectivesForCloudFare()
             ->addDirectivesForGoogleFonts()
+            ->addDirectivesForCloudinary()
             ->addDirectivesForJquery()
         ;
     }
@@ -48,7 +49,18 @@ class CspPolicy extends Basic
     {
         /** @noinspection PhpUnhandledExceptionInspection */
         /** @noinspection PhpIncompatibleReturnTypeInspection */
-        return $this->addDirective(Directive::SCRIPT, ['*.cloudflare']);
+        return $this->addDirective(Directive::SCRIPT, ['*.cloudflare.com']);
+    }
+
+
+    protected function addDirectivesForCloudinary() :self
+    {
+        /** @noinspection PhpUnhandledExceptionInspection */
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return $this->addDirective(Directive::FRAME, ['*.cloudinary.com'])
+            ->addDirective(Directive::SCRIPT, ['*.cloudinary.com'])
+            ->addDirective(Directive::MEDIA, ['*.cloudinary.com'])
+            ->addDirective(Directive::IMG, ['*.cloudinary.com']);
     }
 
     protected function addDirectivesForJquery() :self
