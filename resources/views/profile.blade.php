@@ -28,26 +28,26 @@ use JD\Cloudder\Facades\Cloudder;
 							<div class="profile_name">
 								<ul>
 									<li class="name">
-										Johnny Bullivan-danco
+										{{$user->email}}
 									</li>
-									<li class="user_name">
+									<!-- <li class="user_name">
 										@johnny
-									</li>
+									</li> -->
 								</ul>
 							</div>
 						</div>
 						<div class="col flex">
 							<div class="user_stat">
 								<ul>
-									<li>55</li>
+									<li>{{$user->post_count}}</li>
 									<li>Post</li>
 								</ul>
 								<ul>
-									<li>367</li>
+									<li>{{$user->following_count}}</li>
 									<li>Following</li>
 								</ul>
 								<ul>
-									<li>1032</li>
+									<li>{{$user->followers_count}}</li>
 									<li>Followers</li>
 								</ul>
 							</div>
@@ -95,25 +95,28 @@ use JD\Cloudder\Facades\Cloudder;
 		<div class="row imagegrid">
 			<div class="img-container">
 
-			<!-- insert loop here -->
-
+				<!-- insert loop here -->
+				@if($user->post)
+				@foreach($user->post as $post)
 				<div class="img-box float-left">
-					<a href="#">
-						<img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80" class="img img-fluid">
+					<a href="{{route('details', $post->id)}}">
+						<img src="{{Cloudder::showPrivateUrl($post->path, "png", ["q_auto:eco", "f_auto"])}}" class="img img-fluid">
 						<div class="overlay">
 							<div class='likes'>
-								<i class="far fa-heart"></i><span>105</span>
+								<i class="far fa-heart"></i><span>{{$post->likes_count}}</span>
 							</div>
 							<div class="comments">
-								<i class="far fa-comment"></i><span>28</span>
+								<i class="far fa-comment"></i><span>{{$post->comments_count}}</span>
 							</div>
 						</div>
 					</a>
 				</div>
+				@endforeach
+				@endif
 
-			<!-- end loop here -->
+				<!-- end loop here -->
 
-				<div class="img-box float-left">
+				<!-- <div class="img-box float-left">
 					<a href="#">
 						<img src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?auto=format&fit=crop&w=750&q=80" class="img-fluid">
 						<div class="overlay">
@@ -177,160 +180,10 @@ use JD\Cloudder\Facades\Cloudder;
 							</div>
 						</div>
 					</a>
-				</div>
+				</div> -->
 			</div>
 		</div>
-		<!-- <div class="row imagegrid">
-			<div class="d-flex flex-row flex-wrap justify-content-center">
-				<div class="d-flex flex-column">
-					<a href="#">
-						<div class="img-container">
-							<img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80" class="img-fluid">
-							<div class="overlay">
-								<div class='likes'>
-									<i class="far fa-heart"></i><span>105</span>
-								</div>
-								<div class="comments">
-									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									28
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#">
-						<div class="img-container">
-							<img src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?auto=format&fit=crop&w=750&q=80" class="img-fluid">
-							<div class="overlay">
-								<div class='likes'>
-									<i class="far fa-heart"></i>
-									105
-								</div>
-								<div class="comments">
-									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									28
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#">
-						<div class="img-container">
-							<img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80" class="img-fluid">
-							<div class="overlay">
-								<div class='likes'>
-									<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-									105
-								</div>
-								<div class="comments">
-									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									28
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="d-flex flex-column">
-					<a href="#">
-						<div class="img-container">
-							<img src="https://images.unsplash.com/photo-1500816558239-6b91f4256ead?auto=format&fit=crop&w=331&q=80" class="img-fluid">
-							<div class="overlay">
-								<div class='likes'>
-									<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-									105
-								</div>
-								<div class="comments">
-									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									28
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#"><div class="img-container">
-						<img src="https://images.unsplash.com/photo-1487376318617-f43c7b41e2e2?auto=format&fit=crop&w=750&q=80" class="img-fluid ">
-						<div class="overlay">
-							<div class='likes'>
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-								105
-							</div>
-							<div class="comments">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								28
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="d-flex flex-column">
-				<a href="#">
-					<div class="img-container">
-						<img src="https://images.unsplash.com/photo-1497888329096-51c27beff665?auto=format&fit=crop&w=751&q=80" class="img-fluid">
-						<div class="overlay">
-							<div class='likes'>
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-								105
-							</div>
-							<div class="comments">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								28
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="#">
-					<div class="img-container">
-
-						<img src="https://images.unsplash.com/photo-1505253468034-514d2507d914?auto=format&fit=crop&w=334&q=80"  class="img-fluid ">
-
-						<div class="overlay">
-							<div class='likes'>
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-								105
-							</div>
-							<div class="comments">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								28
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="d-flex flex-column">
-				<a href="#">
-					<div class="img-container">
-						<img src="https://images.unsplash.com/photo-1502550900787-e956c314a221?auto=format&fit=crop&w=334&q=80" class="img-fluid">
-						<div class="overlay">
-							<div class='likes'>
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-								105
-							</div>
-							<div class="comments">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								28
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="#">
-					<div class="img-container">
-						<img src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?auto=format&fit=crop&w=750&q=80" class="img-fluid image">
-						<div class="overlay">
-							<div class='likes'>
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-								105
-							</div>
-							<div class="comments">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								28
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div> -->
-</div>
+	</div>
 </div>
 
 @endsection

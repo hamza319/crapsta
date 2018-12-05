@@ -16,13 +16,25 @@ class UserController extends Controller
         if($following->contains($id) || Auth::id() == $id ){
             $user = User::with(['post' => function($query){
                 $query->withCount(['comments', 'likes']);
-            }])->withCount('following', 'followers')->find($id);
+            }])->withCount(['following', 'followers', 'post'])->find($id);
             
-            /*dd($user);*/
-            return  view('profile', ["user" => $user]);
+            if($user)
+                return  view('profile', ["user" => $user]);
+            else
+            {
+                abort("404", "User not found");
+                return false;
+            }
         }
 
-        return  view('profile', ["user" => User::withCount('following', 'followers')->find($id)]);
+        $user = User::withCount(['following', 'followers', 'post'])->find($id);
+        if ($user)
+            return  view('profile', ["user" => $user]);
+        else
+        {
+            abort("404", "User not found");
+            return false;
+        }
 
     }
 }
