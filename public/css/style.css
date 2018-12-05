@@ -120,8 +120,8 @@
 	.imagegrid .img-container .overlay {
 		position: absolute;
 		background: rgba(0, 0, 0, 0.5);
-		height: 265px;
-		width: 265px;;
+		width: 245px;
+		height: 297px;
 		display: flex;
 		top: 0;
 		/*left: 2px;*/
@@ -137,7 +137,7 @@
 		margin: 2px;
 		cursor:pointer;
 		width: 245px;
-		height: 297px
+		height: 297px;
 		object-fit: cover;
 		
 	}
@@ -180,4 +180,11 @@
 	}
 	.search .user-info .user-stat {
 		display: flex;
+	}
+
+
+	/*cloudinary image widget*/
+
+	.db-ns {
+		display: none;
 	}

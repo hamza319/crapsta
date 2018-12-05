@@ -24,6 +24,7 @@ class CspPolicy extends Basic
             ->addDirectivesForCloudinary()
             ->addDirectivesForJquery()
             ->addDirectivesImages()
+            ->reportOnly()
         ;
     }
 
