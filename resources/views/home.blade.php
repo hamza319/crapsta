@@ -8,7 +8,7 @@ use JD\Cloudder\Facades\Cloudder;
 @section('title', 'Home')
 
 @section('js')
-    <script type="text/javascript">
+    <script type="text/javascript" nonce="{{csp_nonce()}}">
         let solid = "<i class=\"fas fa-heart fa-2x\"></i>";
         let regular = "<i class=\"far fa-heart fa-2x\"></i>";
 
