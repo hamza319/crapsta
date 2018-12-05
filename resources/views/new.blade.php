@@ -71,7 +71,7 @@ $signature = getSignature();
                                 </div>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-outline-primary">Create</button>
+                        <button type="submit" class="btn btn-outline-primary">Share</button>
                     </form>
                 </div>
             </div>

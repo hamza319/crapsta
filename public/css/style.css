@@ -136,8 +136,8 @@
 	.img-container img {
 		margin: 2px;
 		cursor:pointer;
-		width: 265px;
-		height: 265px;
+		width: 245px;
+		height: 297px
 		object-fit: cover;
 		
 	}
