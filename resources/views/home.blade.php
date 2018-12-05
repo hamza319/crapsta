@@ -72,7 +72,7 @@ use JD\Cloudder\Facades\Cloudder;
                         <div class="card-body">
                             <div class="flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1"><a href="#" class="text-dark"><img src="https://placeimg.com/50/50/any" alt="profile pic" class="rounded-circle"
+                                    <h6 class="mb-1"><a href="{{route('profile', $post->user->id)}}" class="text-dark"><img src="https://placeimg.com/50/50/any" alt="profile pic" class="rounded-circle"
                                                                                         height="30" width="30">&nbsp;&nbsp; {{$post->user->email}}</a></h6>
                                     <small>{{$post->created_at->format('M j, Y - h:i A')}}</small>
                                 </div>
@@ -92,7 +92,7 @@ use JD\Cloudder\Facades\Cloudder;
                                     @foreach($post->comments as $comment)
                                         <li class="list-group-item flex-column align-items-start p-2">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h6 class="mb-1"><a href="#" class="text-dark"><img src="https://placeimg.com/50/50/any" alt="profile pic"
+                                                <h6 class="mb-1"><a href="{{route('profile', $comment->user->id)}}" class="text-dark"><img src="https://placeimg.com/50/50/any" alt="profile pic"
                                                                                                     class="rounded-circle"
                                                                                                     height="30" width="30">&nbsp;&nbsp; {{$comment->user->email}}</a>
                                                 </h6>
