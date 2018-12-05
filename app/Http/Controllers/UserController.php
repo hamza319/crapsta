@@ -13,8 +13,9 @@ class UserController extends Controller
 {
     public function profile($id)
     {
-        $following = Auth::user()->following;
+        $following = Auth::user()->following()->get(['following_id'])->pluck('following_id');
         $result = new Collection();
+
         if ($following->contains($id) || Auth::id() == $id) {
             $user = User::with(['post' => function ($query) {
                 $query->withCount(['comments', 'likes']);
@@ -29,6 +30,7 @@ class UserController extends Controller
         }
 
         $user = User::withCount(['following', 'followers', 'post'])->find($id);
+
         if ($user)
             return view('profile', ["user" => $user, "id" => $id]);
         else {

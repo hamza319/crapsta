@@ -107,7 +107,7 @@ $following = Auth::user()->following()->where('following_id', $id)->get()->pluck
                 <div class="img-container">
 
                     <!-- insert loop here -->
-                    @if($user->post)
+                    @if($following->isNotEmpty() || $id == Auth::id())
                         @foreach($user->post as $post)
                             <div class="img-box float-left">
                                 <a href="{{route('details', $post->id)}}">
