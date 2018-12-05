@@ -23,6 +23,7 @@ class CspPolicy extends Basic
             ->addDirectivesForGoogleFonts()
             ->addDirectivesForCloudinary()
             ->addDirectivesForJquery()
+            ->addDirectivesImages()
         ;
     }
 
@@ -34,6 +35,13 @@ class CspPolicy extends Basic
         return $this->addDirective(Directive::FONT, ['*.bootstrapcdn.com'])
             ->addDirective(Directive::SCRIPT, ['*.bootstrapcdn.com'])
             ->addDirective(Directive::STYLE, ['*.bootstrapcdn.com']);
+    }
+
+    protected function addDirectivesImages() :self
+    {
+        /** @noinspection PhpUnhandledExceptionInspection */
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return $this->addDirective(Directive::IMG, ['placeimg.com']);
     }
 
     protected function addDirectivesForFontAwesome() :self
