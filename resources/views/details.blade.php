@@ -8,21 +8,7 @@ use JD\Cloudder\Facades\Cloudder;
 @section('title', 'Post Details')
 
 @section('css')
-<style type="text/css">
-
-.col-12.img-details-box, .comment-box {
-    max-width: 700px;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.list-group-item.comments {
-    overflow-wrap: break-word;
-}
-</style>
-
-
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 @endsection
 
 @section('js')
