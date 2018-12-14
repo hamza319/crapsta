@@ -18,7 +18,7 @@ class UserController extends Controller
 
         if ($following->contains($id) || Auth::id() == $id) {
             $user = User::with(['post' => function ($query) {
-                $query->withCount(['comments', 'likes']);
+                $query->withCount(['comments', 'likes'])->latest();
             }])->withCount(['following', 'followers', 'post'])->find($id);
 
             if ($user)

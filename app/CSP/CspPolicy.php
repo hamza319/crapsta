@@ -9,6 +9,7 @@
 namespace App\CSP;
 
 use Spatie\Csp\Directive;
+use Spatie\Csp\Keyword;
 use Spatie\Csp\Policies\Basic;
 
 class CspPolicy extends Basic
@@ -24,7 +25,7 @@ class CspPolicy extends Basic
             ->addDirectivesForCloudinary()
             ->addDirectivesForJquery()
             ->addDirectivesImages()
-            ->reportOnly()
+            ->addDirective(Directive::FRAME_ANCESTORS, Keyword::NONE)
         ;
     }
 

@@ -123,8 +123,8 @@ use JD\Cloudder\Facades\Cloudder;
                 @if($following->isNotEmpty())
                     @foreach($following as $item)
                         <li class="list-group-item border-0">
-                            <a href="#"><img src="https://placeimg.com/50/50/any" alt="profile pic" class="rounded-circle" height="50" width="50"></a>
-                            <a href="#" class="text-dark"><b>{{$item->follows->email}}</b></a>
+                            <a href="{{route('profile', $item->follows->id)}}"><img src="https://placeimg.com/50/50/any" alt="profile pic" class="rounded-circle" height="50" width="50"></a>
+                            <a href="{{route('profile', $item->follows->id)}}" class="text-dark"><b>{{$item->follows->email}}</b></a>
                         </li>
                     @endforeach
                 @else
